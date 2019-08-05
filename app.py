@@ -14,8 +14,6 @@ app.config['SECRET_KEY'] = 'shir-tale-aboud-maayan'
 @app.route('/')
 def home():
     stores = query_all()
-    print(stores)
-    print('a')
     return render_template('home.html', stores=stores)
     
 @app.route('/addStore', methods=['POST'])

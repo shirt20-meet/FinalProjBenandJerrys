@@ -6,8 +6,9 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 class Store(Base):
-    __tablename__ = "users"
+    __tablename__ = "stores"
     id = Column(Integer, primary_key=True)
     name = Column(String)
-    address = Column(String)
     phone = Column(String)
+    city = Column(String)
+    street = Column(String)

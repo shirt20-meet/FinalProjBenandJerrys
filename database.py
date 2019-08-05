@@ -8,9 +8,9 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-def add_store(name, address, phone):
+def add_store(name, phone, city, street):
     """Add a store to the DB."""
-    store = Store(name=name, address=address, phone=phone)
+    store = Store(name=name, phone=phone, city=city, street=street)
     session.add(store)
     session.commit()
 
@@ -22,6 +22,14 @@ def get_store(name):
     """Find the first store in the DB, by thr name."""
     return session.query(Store).filter_by(name=name).first()
 
+def query_by_city(city):
+	return session.query(Store).filter_by(city=city).all()
+
 def remove_store(name):
     session.query(Store).filter_by(name=name).first().remove()
     session.commit()
+
+# add_store('abcd', '05000', 'Jerusalem', 'gfds')
+# add_store('1234', '12365', 'Jerusalem', 'sd')
+# add_store('asdf', '05000', 'Haifa', 'ds')
+# add_store('abcd', '05000', 'Haifa', 'qw')
