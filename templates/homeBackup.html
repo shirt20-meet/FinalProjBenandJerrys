@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home_style.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=Crafty+Girls&display=swap" rel="stylesheet">
+  
+	<title>Find Your Store - Ben & Jerry's</title>
+	<style type="text/css">
+		ul {
+			list-style-type: none;
+		}
+	</style>
+</head>
+<body>
+
+	
+	<h1 style="text-align:center; font-size:500%;">Find Your Store</h1>
+	<div>
+		<h1>List of stores:</h1>
+		<ul>
+			{% for store in stores %}
+			<li>store name: {{store.name}}<br>store address: {{store.address}}<br>store phone: {{store.phone}}</li>
+			<br>
+			<br>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div style="text-align:center;" class="bounceIn">
+		<h2>Add a store</h1>
+		<form action="/addStore" method="POST">
+			<input type="password" name="pass" placeholder="Password">
+			<br>
+			<input type="text" name="name" placeholder="Store name">
+			<br>
+			<input type="text" name="address" placeholder="Address">
+			<br>
+			<input type="text" name="phone" placeholder="Phone">
+			<br>
+			<input type="submit" name="submit">
+		</form>
+	</div>
+</body>
+</html>

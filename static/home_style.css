@@ -7,3 +7,21 @@ body{
 	font-family: 'Crafty Girls', cursive;
 }
 
+@keyframes bounceIn {
+	0% {
+		transform: scale(0.1);
+	}
+	60% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.bounceIn {
+	animation-name: bounceIn;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
