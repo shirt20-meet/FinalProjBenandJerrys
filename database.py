@@ -15,7 +15,8 @@ def add_store(name, address, phone):
     session.commit()
 
 def query_all():
-    return session.query(Store).all()
+	print('b')
+	return session.query(Store).all()
 
 def get_store(name):
     """Find the first store in the DB, by thr name."""

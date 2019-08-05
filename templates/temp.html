@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find Your Store - Ben & Jerry's</title>
+	<style type="text/css">
+		ul {
+			list-style-type: none;
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<h2>Find Your Store</h2>
+	<div>
+		<h3>List of stores:</h3>
+		<ul>
+			{% for store in stores %}
+
+			<li>store name: {{store.name}}
+				<br>store address: {{store.address}}
+				<br>store phone: {{store.phone}}
+				<br><button class="button" id="{{store.id}}">Show Map</button>
+				<iframe 
+					style='display:none;' id="description_{{store.id}}"
+					width="600"
+					height="450"
+					frameborder="0" style="border:0"
+					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDb6rgySRK06gNSaMXSSWsu2wW61KbdIdY	
+					&q={{store.address.replace(' ', '+')}}" allowfullscreen>
+				</iframe>
+			</li>
+
+			<br>
+			<br>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div>
+		<h3>Add a store</h3>
+		<form action="/addStore" method="POST">
+			<input type="password" name="pass" placeholder="Password">
+			<br>
+			<input type="text" name="name" placeholder="Store name">
+			<br>
+			<input type="text" name="address" placeholder="Address">
+			<br>
+			<input type="text" name="phone" placeholder="Phone">
+			<br>
+			<input type="submit" name="submit">
+		</form>
+	</div>
+
+	<script>        
+		    $('.button').each(function(){
+		    	console.log('clicked1');
+		        var toggle_div_id = 'description_' + $(this).attr('id');
+		        $(this).click(function(){
+		            $('#' + toggle_div_id).toggle();
+		            console.log('clicked');
+		        });
+		    });
+	</script>
+</body>
+</html>

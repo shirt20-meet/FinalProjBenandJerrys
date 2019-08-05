@@ -91,7 +91,7 @@
       <div class="row">
 
         <!-- Portfolio Item 1 -->
-        <div class="col-md-6 col-lg-4">
+        <!-- <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
@@ -100,10 +100,10 @@
             </div>
             <img class="img-fluid" src="{{url_for('static', filename='img/portfolio/cabin.png')}}" alt="">
           </div>
-        </div>
+        </div> -->
 
         <!-- Portfolio Item 2 -->
-        <div class="col-md-6 col-lg-4">
+        <!-- <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
@@ -112,10 +112,10 @@
             </div>
             <img class="img-fluid" src="{{url_for('static', filename='img/portfolio/cake.png')}}" alt="">
           </div>
-        </div>
+        </div> -->
 
         <!-- Portfolio Item 3 -->
-        <div class="col-md-6 col-lg-4">
+        <!-- <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
@@ -125,9 +125,9 @@
             <img class="img-fluid" src="{{url_for('static', filename='img/portfolio/circus.png')}}" alt="">
           </div>
         </div>
-
+ -->
         <!-- Portfolio Item 4 -->
-        <div class="col-md-6 col-lg-4">
+        <!-- <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
@@ -136,10 +136,10 @@
             </div>
             <img class="img-fluid" src="{{url_for('static', filename='img/portfolio/game.png')}}" alt="">
           </div>
-        </div>
+        </div> -->
 
         <!-- Portfolio Item 5 -->
-        <div class="col-md-6 col-lg-4">
+        <!-- <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
@@ -148,10 +148,10 @@
             </div>
             <img class="img-fluid" src="{{url_for('static', filename='img/portfolio/safe.png')}}" alt="">
           </div>
-        </div>
+        </div> -->
 
         <!-- Portfolio Item 6 -->
-        <div class="col-md-6 col-lg-4">
+        <!-- <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
@@ -162,8 +162,27 @@
           </div>
         </div>
 
-      </div>
-      <!-- /.row -->
+      </div> -->
+      {% for store in stores %}
+
+			<li class="store_info">store name: {{store.name}}
+				<br>store address: {{store.address}}
+				<br>store phone: {{store.phone}}
+				<br><button class="button" id="{{store.id}}">Show Map</button>
+				<iframe 
+					style='display:none;' id="description_{{store.id}}"
+					width="600"
+					height="450"
+					frameborder="0" style="border:0"
+					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDb6rgySRK06gNSaMXSSWsu2wW61KbdIdY	
+					&q={{store.address.replace(' ', '+')}}" allowfullscreen>
+				</iframe>
+			</li>
+
+			<br>
+			<br>
+		{% endfor %}
+      <!-- /.row --d>
 
     </div>
   </section>
@@ -569,6 +588,8 @@
 
   <!-- Custom scripts for this template -->
   <script src="{{url_for('static', filename='js/freelancer.min.js')}}"></script>
+
+  <script src="{{url_for('static', filename='js/map_button.js')}}"></script>
 
 </body>
 

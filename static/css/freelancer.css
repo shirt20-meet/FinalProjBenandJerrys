@@ -514,6 +514,10 @@ mark,
   color: #6c757d;
 }
 
+.store_info {
+  border-style: outset;
+}
+
 code {
   font-size: 87.5%;
   color: #e83e8c;
