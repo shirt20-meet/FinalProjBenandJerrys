@@ -42,7 +42,13 @@
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+
           </li>
+           <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#"><div id="google_translate_element"></div></a>
+
+          </li>
+
         </ul>
       </div>
     </div>
@@ -226,8 +232,31 @@
         </div>
       </div> -->
 
-     <div style="text-align:center;">
-      	<form action="/addStore" method="POST">
+      <div>
+
+        <form action="/addStore" method="POST">
+          <div class="form-group floating-label-form-group controls mb-0 pb-2">
+            <label>Store Name</label>
+            <input class="form-control" id="name" type="text" name="name" placeholder="Store Name" required="required">
+            <p class="help-block text-danger"></p><br>
+            
+            <label>Store City</label>
+            <input class="form-control" id="name" type="text" name="city" placeholder="Store City" required="required">
+            <p class="help-block text-danger"></p><br>
+
+            <label>Store Street</label>
+            <input class="form-control" id="name" type="text" name="street" placeholder="Store Street" required="required">
+            <p class="help-block text-danger"></p><br>
+
+            <label>Store Phone</label>
+            <input class="form-control" id="name" type="text" name="phone" placeholder="Store Phone" required="required">
+            <p class="help-block text-danger"></p><br>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
+            </div>
+      </div>
+      <!-- 	<form action="/addStore" method="POST">
       		<input type="password" name="pass" placeholder="Password">
       		<br>
       		<input type="text" name="name" placeholder="Store Name">
@@ -239,7 +268,7 @@
       		<input type="text" name="phone" placeholder="Store Phone">
       		<br>
       		<input type="submit" name="submit">
-      	</form>
+      	</form> -->
       </div>
 
 
@@ -321,8 +350,8 @@
         <!-- Footer Location -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0">2215 John Daniel Drive
-            <br>Clark, MO 65243</p>
+          <p class="lead mb-0">1. Hakaz'ir Street, ET Beer Tuvia
+            <br>2. Yavne 5 Hameisav Street</p>
         </div>
 
         <!-- Footer Social Icons -->
@@ -344,9 +373,9 @@
 
         <!-- Footer About Text -->
         <div class="col-lg-4">
-          <h4 class="text-uppercase mb-4">About Freelancer</h4>
-          <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
-            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+          <h4 class="text-uppercase mb-4">About Ben & Jerry's</h4>
+          <p class="lead mb-0">From a renovated gas station in Burlington, Vermont, to far-off places with names we sometimes mispronounce, the journey that began in 1978 with 2 guys and the ice cream business they built is as legendary as the ice cream is euphoric.
+          <a href="https://www.benjerry.com/">TO Ben & Jerry's</a>.</p>
         </div>
 
       </div>
@@ -602,6 +631,14 @@
       </div>
     </div>
   </div>
+  <script> 
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en'
+  }, 'google_translate_element');
+}
+</script>
+<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
 
   <!-- Bootstrap core JavaScript -->
   <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
