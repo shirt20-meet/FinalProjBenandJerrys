@@ -8,12 +8,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Freelancer - Start Bootstrap Theme</title>
+  <title>Ben & Jerry's Stores</title>
 
   <!-- Custom fonts for this theme -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+<!--   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Crafty+Girls&display=swap" rel="stylesheet">
 
   <!-- Theme CSS -->
   <link href="{{url_for('static',filename='css/freelancer.css')}}" rel="stylesheet">
@@ -25,6 +26,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
+      <img style="width: 60px; margin-right: 20px;" src="{{url_for('static',filename='img/logo2.png')}}">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">ben & Jerry's</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -168,11 +170,17 @@
       </div> -->
       {% for store in stores %}
 
-			<li class="store_info">
-				store name: {{store.name}}
-				<br>store city: {{store.city}}
-				<br>store street: {{store.street}}
-				<br>store phone: {{store.phone}}
+<!-- <<<<<<< HEAD -->
+			<li style="list-style: none;" class="store_info">
+				<b>store name:</b> {{store.name}}
+				<br><b>store city:</b> {{store.city}}
+				<br><b>store street:</b> {{store.street}}
+				<br><b>store phone:</b> {{store.phone}}
+<!-- =======
+			<li style="list-style: none;" class="store_info"><b>store name:</b> {{store.name}}
+				<br><b>address:</b> {{store.address}}
+				<br><b>phone:</b> {{store.phone}}
+>>>>>>> 3c620e2d3937ece63538f800b240e08028174b3e -->
 				<br><button class="button" id="{{store.id}}">Show Map</button>
 				<iframe 
 					style='display:none;' id="description_{{store.id}}"
@@ -187,19 +195,20 @@
 			<br>
 			<br>
 		{% endfor %}
-      <!-- /.row -->
-
+		{% if loadmore %}
+		<br><a href="/{{next_count}}"><button>for more stores</button></a>
+		{% endif %}
     </div>
   </section>
-
-  <!-- About Section -->
+<!-- 
+  About Section -->
   <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
 
       <!-- About Section Heading -->
       <h2 class="page-section-heading text-center text-uppercase text-white">Add Store</h2>
 
-      <!-- Icon Divider -->
+<!--       Icon Divider -->
       <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon">
@@ -207,34 +216,48 @@
         </div>
         <div class="divider-custom-line"></div>
       </div>
-
-      <!-- About Section Content -->
-      <div class="row">
+<!--About Section Content -->
+      <!-- <div class="row">
         <div class="col-lg-4 ml-auto">
           <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
         </div>
         <div class="col-lg-4 mr-auto">
           <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
         </div>
+      </div> -->
+
+     <div style="text-align:center;">
+      	<form action="/addStore" method="POST">
+      		<input type="password" name="pass" placeholder="Password">
+      		<br>
+      		<input type="text" name="name" placeholder="Store Name">
+      		<br>
+      		<input type="text" name="city" placeholder="Store City">
+      		<br>
+      		<input type="text" name="street" placeholder="Store Street">
+      		<br>
+      		<input type="text" name="phone" placeholder="Store Phone">
+      		<br>
+      		<input type="submit" name="submit">
+      	</form>
       </div>
 
+
       <!-- About Section Button -->
-      <div class="text-center mt-4">
+      <!-- <div class="text-center mt-4">
         <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/themes/freelancer/">
           <i class="fas fa-download mr-2"></i>
           Free Download!
         </a>
-      </div>
-
-    </div>
+      -->
   </section>
 
-  <!-- Contact Section -->
+ <!-- Contact Section -->
   <section class="page-section" id="contact">
     <div class="container">
 
       <!-- Contact Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Us</h2>
 
       <!-- Icon Divider -->
       <div class="divider-custom">

@@ -9,6 +9,6 @@ class Store(Base):
     __tablename__ = "stores"
     id = Column(Integer, primary_key=True)
     name = Column(String)
-    phone = Column(String)
     city = Column(String)
     street = Column(String)
+    phone = Column(String)

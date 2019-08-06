@@ -8,9 +8,9 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-def add_store(name, phone, city, street):
+def add_store(name, city, street, phone):
     """Add a store to the DB."""
-    store = Store(name=name, phone=phone, city=city, street=street)
+    store = Store(name=name, city=city, street=street, phone=phone)
     session.add(store)
     session.commit()
 
