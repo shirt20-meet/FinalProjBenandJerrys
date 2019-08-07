@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Freelancer - Start Bootstrap Theme</title>
+  <title>Ben & Jerry's Stores</title>
 
   <!-- Custom fonts for this theme -->
   <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
@@ -42,7 +42,13 @@
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+
           </li>
+           <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#"><div id="google_translate_element"></div></a>
+
+          </li>
+
         </ul>
       </div>
     </div>
@@ -169,11 +175,18 @@
       </div> -->
       {% for store in stores %}
 
+<!-- <<<<<<< HEAD -->
 			<li style="list-style: none;" class="store_info">
-        <b>store name:</b> {{store.name}}
+				<b>store name:</b> {{store.name}}
 				<br><b>store city:</b> {{store.city}}
-        <br><b>store street:</b> {{store.street}}
+				<br><b>store street:</b> {{store.street}}
+				<br><b>store phone:</b> {{store.phone}}
+<!-- =======
+			<li style="list-style: none;" class="store_info"><b>store name:</b> {{store.name}}
+				<br><b>address:</b> {{store.address}}
+>>>>>>> d0b1aa82142878e8c02c400bbd5b5bf92327e59c
 				<br><b>phone:</b> {{store.phone}}
+>>>>>>> 3c620e2d3937ece63538f800b240e08028174b3e -->
 				<br><button class="button" id="{{store.id}}">Show Map</button>
 				<iframe 
 					style='display:none;' id="description_{{store.id}}"
@@ -181,14 +194,16 @@
 					height="450"
 					frameborder="0" style="border:0"
 					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDb6rgySRK06gNSaMXSSWsu2wW61KbdIdY	
-					&q={{store.address.replace(' ', '+')}}" allowfullscreen>
+					&q={{store.address}}.replace(' ', '+'),{{store.city}}" allowfullscreen>
 				</iframe>
 			</li>
 
 			<br>
 			<br>
 		{% endfor %}
-
+		{% if loadmore %}
+		<br><a href="/{{next_count}}"><button>for more stores</button></a>
+		{% endif %}
     </div>
   </section>
 <!-- 
@@ -208,13 +223,52 @@
         <div class="divider-custom-line"></div>
       </div>
 <!--About Section Content -->
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-4 ml-auto">
           <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
         </div>
         <div class="col-lg-4 mr-auto">
           <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
         </div>
+      </div> -->
+
+      <div>
+
+        <form action="/addStore" method="POST">
+          <div class="form-group floating-label-form-group controls mb-0 pb-2">
+            <label>Store Name</label>
+            <input class="form-control" id="name" type="text" name="name" placeholder="Store Name" required="required">
+            <p class="help-block text-danger"></p><br>
+            
+            <label>Store City</label>
+            <input class="form-control" id="name" type="text" name="city" placeholder="Store City" required="required">
+            <p class="help-block text-danger"></p><br>
+
+            <label>Store Street</label>
+            <input class="form-control" id="name" type="text" name="street" placeholder="Store Street" required="required">
+            <p class="help-block text-danger"></p><br>
+
+            <label>Store Phone</label>
+            <input class="form-control" id="name" type="text" name="phone" placeholder="Store Phone" required="required">
+            <p class="help-block text-danger"></p><br>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
+            </div>
+      </div>
+      <!-- 	<form action="/addStore" method="POST">
+      		<input type="password" name="pass" placeholder="Password">
+      		<br>
+      		<input type="text" name="name" placeholder="Store Name">
+      		<br>
+      		<input type="text" name="city" placeholder="Store City">
+      		<br>
+      		<input type="text" name="street" placeholder="Store Street">
+      		<br>
+      		<input type="text" name="phone" placeholder="Store Phone">
+      		<br>
+      		<input type="submit" name="submit">
+      	</form> -->
       </div>
 
 
@@ -232,7 +286,7 @@
     <div class="container">
 
       <!-- Contact Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Us</h2>
 
       <!-- Icon Divider -->
       <div class="divider-custom">
@@ -296,8 +350,8 @@
         <!-- Footer Location -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0">2215 John Daniel Drive
-            <br>Clark, MO 65243</p>
+          <p class="lead mb-0">1. Hakaz'ir Street, ET Beer Tuvia
+            <br>2. Yavne 5 Hameisav Street</p>
         </div>
 
         <!-- Footer Social Icons -->
@@ -319,9 +373,9 @@
 
         <!-- Footer About Text -->
         <div class="col-lg-4">
-          <h4 class="text-uppercase mb-4">About Freelancer</h4>
-          <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
-            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+          <h4 class="text-uppercase mb-4">About Ben & Jerry's</h4>
+          <p class="lead mb-0">From a renovated gas station in Burlington, Vermont, to far-off places with names we sometimes mispronounce, the journey that began in 1978 with 2 guys and the ice cream business they built is as legendary as the ice cream is euphoric.
+          <a href="https://www.benjerry.com/">TO Ben & Jerry's</a>.</p>
         </div>
 
       </div>
@@ -577,6 +631,14 @@
       </div>
     </div>
   </div>
+  <script> 
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en'
+  }, 'google_translate_element');
+}
+</script>
+<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
 
   <!-- Bootstrap core JavaScript -->
   <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
@@ -594,7 +656,7 @@
 
   <script src="{{url_for('static', filename='js/map_button.js')}}"></script>
 
-  <script type="{{url_for('static', filename='js/search_bar.js')}} "></script>
+  <script src="{{url_for('static', filename='js/search_bar.js')}}"></script>
 
 </body>
 
