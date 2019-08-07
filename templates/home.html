@@ -177,6 +177,7 @@
 
 <!-- <<<<<<< HEAD -->
 			<li style="list-style: none;" class="store_info">
+        <div style="position: relative;top:opx;">
 				<b>store name:</b> {{store.name}}
 				<br><b>store city:</b> {{store.city}}
 				<br><b>store street:</b> {{store.street}}
@@ -188,13 +189,14 @@
 				<br><b>phone:</b> {{store.phone}}
 >>>>>>> 3c620e2d3937ece63538f800b240e08028174b3e -->
 				<br><button class="button" id="{{store.id}}">Show Map</button>
+      </div>
 				<iframe 
 					style='display:none;' id="description_{{store.id}}"
 					width="600"
 					height="450"
 					frameborder="0" style="border:0"
 					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDb6rgySRK06gNSaMXSSWsu2wW61KbdIdY	
-					&q={{store.street}}.replace(' ', '+'),{{store.city}}" allowfullscreen>
+					&q={{store.street}},{{store.city}}" allowfullscreen>
 				</iframe>
 			</li>
 
