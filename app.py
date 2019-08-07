@@ -35,15 +35,11 @@ def home_loaded(count):
     stores_list = query_all()
     stores=[]
 
-
-
     if(len(stores_list)<12*count):
     	stores=stores_list
     else:
 	    for i in range(count*12):
 	    	stores.append(stores_list[i])
-
-
 
     if(count == (((len(stores_list)%12)+(len(stores_list))/12))):
     	stores=stores_list
@@ -54,18 +50,7 @@ def home_loaded(count):
             stores.append(stores_list[i+j])
             j = j * 2
 
-    # elif ():
-    # 	for i in range(count*12):
-		  #   	stores.append(stores_list[i+12])
-
-    else:
-        # for i in range(len(stores_list)%12):
-        #     	stores.append(stores_list[-i])
-
-
-
-
-	next_count=count+1
+    next_count=count+1
     if (len(stores_list)<(count*12)):
     	loadmore=False
     	print(len(stores_list))
@@ -74,7 +59,8 @@ def home_loaded(count):
     
 @app.route('/addStore', methods=['POST'])
 def addStore():
-    if sha256(request.form['pass'].decode()).hexdigest() == pass_hash:
+    #if sha256(request.form['pass'].decode()).hexdigest() == pass_hash:
+    if request.method == "POST":
         add_store(request.form['name'], request.form['city'], request.form['street'], request.form['phone'])
         return home()
 
