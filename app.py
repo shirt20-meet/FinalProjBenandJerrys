@@ -45,8 +45,8 @@ def home_loaded(count):
     	stores=stores_list
 
     elif (len(stores_list)%12 == 0):
-	    for i in range(count*12):
-	    	j=12
+        for i in range(count*12):
+            j=12
             stores.append(stores_list[i+j])
             j = j * 2
 
