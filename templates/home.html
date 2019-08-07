@@ -89,6 +89,8 @@
         <div class="divider-custom-line"></div>
       </div>
 
+      <input type="text" id="searchInput" placeholder="Search for store" title="Type in a name">
+
       <!-- Portfolio Grid Items -->
       <div class="row">
 
@@ -167,8 +169,10 @@
       </div> -->
       {% for store in stores %}
 
-			<li style="list-style: none;" class="store_info"><b>store name:</b> {{store.name}}
-				<br><b>address:</b> {{store.address}}
+			<li style="list-style: none;" class="store_info">
+        <b>store name:</b> {{store.name}}
+				<br><b>store city:</b> {{store.city}}
+        <br><b>store street:</b> {{store.street}}
 				<br><b>phone:</b> {{store.phone}}
 				<br><button class="button" id="{{store.id}}">Show Map</button>
 				<iframe 
@@ -589,6 +593,8 @@
   <script src="{{url_for('static', filename='js/freelancer.min.js')}}"></script>
 
   <script src="{{url_for('static', filename='js/map_button.js')}}"></script>
+
+  <script type="{{url_for('static', filename='js/search_bar.js')}} "></script>
 
 </body>
 
